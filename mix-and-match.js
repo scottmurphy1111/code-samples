@@ -1,6 +1,5 @@
 /**Mix and Match for Olli**/
-jQuery(document).ready(function() {
-	
+jQuery(document).ready(function() {	
 	var _c = 0;
 		jQuery('a.product_gallery').click(function(){
 		jQuery('.primary-product-photo .product_gallery').html("<img src='"+jQuery(this).attr('href')+" class='primaryborderimage'>");
@@ -11,10 +10,8 @@ jQuery(document).ready(function() {
 		jQuery(this).find('.overlay').slideToggle();
 	});
 
-	var 
-	errorExists = 0,
+	var errorExists = 0,
 	currentPrice = 39.99;
-
 	
 	jQuery('#options li').draggable({
 		appendTo: "body",
@@ -80,6 +77,7 @@ jQuery(document).ready(function() {
 			
 			
 		}
+
 	}).click(function() {
 		var $this = jQuery(this);
 		
@@ -148,13 +146,11 @@ jQuery(document).ready(function() {
 			$choice2 	= jQuery('[data-choice-num="2"]').attr('id'),
 			$choice3 	= jQuery('[data-choice-num="3"]').attr('id'),
 			$choices 	= jQuery('#choices'),			 
-			numChoices 	= $this.parent().find('li').length;
-			
+			numChoices 	= $this.parent().find('li').length;			
 			
 			$choice1    = choiceMade($choice1);
 			$choice2    = choiceMade($choice2);
 			$choice3    = choiceMade($choice3);
-
 
 		$this.remove();	
 
@@ -172,8 +168,7 @@ jQuery(document).ready(function() {
 			jQuery('#price, .mobile-price').text('$' + currentPrice);
 
 
-		if (numChoices === 1) { 
-			
+		if (numChoices === 1) { 			
 			$('.product-addon-choice-1 option').removeAttr('selected');
 		} 
 		else if (numChoices === 2) {
@@ -207,14 +202,12 @@ jQuery(document).ready(function() {
 			} else if (choiceNum === 3) {
 				$('.product-addon-choice-3 option').removeAttr('selected');
 			}
-		}
-		
+		}		
 
 		function choiceMade(choice) {
 				switch(choice) {
 					case "molisana":
-						return "molisana-1";
-						
+						return "molisana-1";						
 					break;
 
 					case "norcino":
@@ -255,14 +248,12 @@ jQuery(document).ready(function() {
 				}
 			}
    	});
-
    	
 	jQuery('#choices').droppable({
 		activeClass: 'ui-state-default',
 		hoverClass: 'ui-state-hover',
 		accept: ":not(.ui-sortable-helper)",
-		drop: function(ev, ui) {
-			
+		drop: function(ev, ui) {			
 			jQuery('li.ui-sortable-placeholder').remove();
 			var $this 		= jQuery(this);
 			var	selection 	= ui.draggable,
@@ -272,8 +263,7 @@ jQuery(document).ready(function() {
 				$option1 	= jQuery('#product-addons-1'),
 				$option2 	= jQuery('#product-addons-2'),
 				$option3 	= jQuery('#product-addons-3'),
-				$thisName 	= selection.data('name');
-			
+				$thisName 	= selection.data('name');			
 			
 			if (selections == 3) { return false;}
 			
@@ -299,10 +289,7 @@ jQuery(document).ready(function() {
 				$option3.find('option[value='+productId+']').prop('selected', true);	
 				selection.data('select-num', 3);
 			}
-			function productId(product, indexNum) {
-				var productId	= products[product][indexNum];	
-				return productId;
-			}
+			
 		},
 	});
 

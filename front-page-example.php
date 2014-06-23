@@ -1,5 +1,4 @@
-<?php get_header(); ?>
-	
+<?php get_header(); ?>	
 	
 	<section id="top-section">
 		<div class="wrapper clearfix">
@@ -33,31 +32,23 @@
 
 			    <ul class="service-thumbs">
                 
-                <?php $loop = new WP_Query( array( 'post_type' => 'services', 'posts_per_page' => 10, 'order' => 'DESC' ) ); ?>
-				<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<?php $static_image = (get_template_directory_uri()) . '/images/services-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'.png'; ?>
-				<?php $active_image = (get_template_directory_uri()) . '/images/services-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'-hover.png'; ?>
-					<li><a href="<?php the_permalink() ?>" rel="<?php the_ID(); ?>"><?php the_post_thumbnail(array(115, 115), array('class' => 'hovericons service-thumb als-item', 'rel' => $active_image, 'data-attr' => $static_image, 'data-attr-thumb' => $active_image )); ?></a></li>
+	                <?php $loop = new WP_Query( array( 'post_type' => 'services', 'posts_per_page' => 10, 'order' => 'DESC' ) ); ?>
+					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					<?php $static_image = (get_template_directory_uri()) . '/images/services-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'.png'; ?>
+					<?php $active_image = (get_template_directory_uri()) . '/images/services-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'-hover.png'; ?>
+						<li><a href="<?php the_permalink() ?>" rel="<?php the_ID(); ?>"><?php the_post_thumbnail(array(115, 115), array('class' => 'hovericons service-thumb als-item', 'rel' => $active_image, 'data-attr' => $static_image, 'data-attr-thumb' => $active_image )); ?></a></li>
 
-					<?php endwhile; ?>
-					<?php  wp_reset_query(); ?>
-				</ul>				
+						<?php endwhile; ?>
+						<?php  wp_reset_query(); ?>
+				</ul>			
 			  			
-				<p><?php //echo get_option('siteurl'); ?></p>
-
-				<div id="home-service-info" class="hide"></div>
-					
-						
+				<div id="home-service-info" class="hide"></div>						
 
 	            <?php endwhile; else: ?>
 	                <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	            <?php endif; ?>
-
 						
-			</div>
-			<!--<div class="services-expanded-content">
-				<div id="service-info"></div>
-			</div>-->
+			</div>			
 		</div>
 	</section>
 
@@ -69,31 +60,23 @@
 
 			    <ul class="solution-thumbs">
                 
-                <?php $loop = new WP_Query( array( 'post_type' => 'solutions', 'posts_per_page' => 10, 'order' => 'DESC' ) ); ?>
-				<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<?php $static_image = (get_template_directory_uri()) . '/images/solutions-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'.png'; ?>
-				<?php $active_image = (get_template_directory_uri()) . '/images/solutions-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'-hover.png'; ?>
-					<li><a href="<?php the_permalink() ?>" rel="<?php the_ID(); ?>"><?php the_post_thumbnail(array(115, 115), array('class' => 'hovericons solution-thumb als-item', 'rel' => $active_image, 'data-attr' => $static_image, 'data-attr-thumb' => $active_image )); ?></a></li>
+	                <?php $loop = new WP_Query( array( 'post_type' => 'solutions', 'posts_per_page' => 10, 'order' => 'DESC' ) ); ?>
+					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					<?php $static_image = (get_template_directory_uri()) . '/images/solutions-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'.png'; ?>
+					<?php $active_image = (get_template_directory_uri()) . '/images/solutions-icons/' . str_replace(" ", "-", strtolower($post->post_title)) .'-hover.png'; ?>
+						<li><a href="<?php the_permalink() ?>" rel="<?php the_ID(); ?>"><?php the_post_thumbnail(array(115, 115), array('class' => 'hovericons solution-thumb als-item', 'rel' => $active_image, 'data-attr' => $static_image, 'data-attr-thumb' => $active_image )); ?></a></li>
 
-					<?php endwhile; ?>
-					<?php  wp_reset_query(); ?>
-				</ul>				
-			  			
-
+						<?php endwhile; ?>
+						<?php  wp_reset_query(); ?>
+				</ul>
 
 				<div id="home-solution-info" class="hide"></div>
-					
-						
 
 	            <?php endwhile; else: ?>
 	                <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	            <?php endif; ?>
-
 						
-			</div>
-			<!--<div class="solutions-expanded-content">
-				<div id="solution-info"></div>
-			</div>-->
+			</div>			
 		</div>
 	</section>
 
